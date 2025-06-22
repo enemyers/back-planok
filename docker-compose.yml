@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=planok_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Ene0208.
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=django-insecure-planok-api-secret-key-change-in-production
+      - ALLOWED_HOSTS=localhost,127.0.0.1,web
+      - DB_ENGINE=django.db.backends.postgresql
+      - DB_NAME=planok_db
+      - DB_USER=postgres
+      - DB_PASSWORD=Ene0208.
+      - DB_HOST=db
+      - DB_PORT=5432  # Puerto interno en el contenedor sigue siendo 5432
+      - CORS_ALLOW_ALL_ORIGINS=True
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
