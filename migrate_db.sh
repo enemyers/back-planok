@@ -10,15 +10,15 @@ NC='\033[0m' # No Color
 SOURCE_DB_NAME="planok_db"
 SOURCE_DB_USER="postgres"
 SOURCE_DB_PASSWORD="Ene0208."
-SOURCE_DB_HOST="172.17.0.2"
-SOURCE_DB_PORT="5432"
+SOURCE_DB_HOST="172.19.0.1"
+SOURCE_DB_PORT="5433"
 
 # Variables de la base de datos de destino (Docker)
 DOCKER_DB_NAME="planok_db"
 DOCKER_DB_USER="postgres"
 DOCKER_DB_PASSWORD="Ene0208."
-DOCKER_DB_HOST="172.19.0.1"
-DOCKER_DB_PORT="5433"
+DOCKER_DB_HOST="172.20.0.1"
+DOCKER_DB_PORT="5432"
 
 # Nombre del archivo de respaldo
 BACKUP_FILE="planok_db_backup.sql"

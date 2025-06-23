@@ -109,7 +109,7 @@ docker-compose up --build
 
 Este comando construirá las imágenes necesarias y levantará los contenedores para:
 - La aplicación Django (disponible en http://localhost:8000/)
-- La base de datos PostgreSQL (disponible en localhost:5433)
+- La base de datos PostgreSQL (disponible en localhost:5432)
 
 3. **Crear un superusuario (opcional)**
 
