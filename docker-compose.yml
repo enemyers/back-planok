@@ -35,7 +35,7 @@ services:
       - DB_USER=postgres
       - DB_PASSWORD=Ene0208.
       - DB_HOST=db
-      - DB_PORT=5432  # Puerto interno en el contenedor sigue siendo 5432
+      - DB_PORT=5432
       - CORS_ALLOW_ALL_ORIGINS=True
     depends_on:
       db:

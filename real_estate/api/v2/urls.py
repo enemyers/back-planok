@@ -4,7 +4,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .views import UsuarioViewSetV2
 
-# Crear router para la API v2
+# API v2
 router_v2 = DefaultRouter()
 router_v2.register(r'usuarios', UsuarioViewSetV2)
 
